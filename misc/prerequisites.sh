@@ -163,10 +163,12 @@ install_nasm()
     (DIR=${TEMP_PATH}/nasm && \
     mkdir -p ${DIR} && \
     cd ${DIR} && \
-    curl -sLf https://github.com/netwide-assembler/nasm/archive/refs/tags/nasm-${NASM_VERSION}.tar.gz | tar -zx --strip-components=1 && \
-    ./autogen.sh && \
+    curl -sLf https://github.com/netwide-assembler/nasm/archive/refs/tags/nasm-${NASM_VERSION}.tar.gz | tar -xz --strip-components=1 && \
+	./autogen.sh && \
     ./configure --prefix="${PREFIX}" && \
-    make -j$(nproc) everything && \
+    make -j$(nproc) && \
+	touch nasm.1 && \ # To avoid error in nasm install package
+	touch ndisasm.1 && \ # To avoid error in nasm install package
     sudo make install && \
     rm -rf ${DIR}) || fail_exit "nasm"
 }
