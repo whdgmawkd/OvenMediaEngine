@@ -166,7 +166,7 @@ install_nasm()
     curl -sLf https://github.com/netwide-assembler/nasm/archive/refs/tags/nasm-${NASM_VERSION}.tar.gz | tar -zx --strip-components=1 && \
     ./autogen.sh && \
     ./configure --prefix="${PREFIX}" && \
-    make -j$(nproc) && \
+    make -j$(nproc) everything && \
     sudo make install && \
     rm -rf ${DIR}) || fail_exit "nasm"
 }
