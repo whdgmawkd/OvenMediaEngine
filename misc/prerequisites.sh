@@ -164,6 +164,7 @@ install_nasm()
     mkdir -p ${DIR} && \
     cd ${DIR} && \
     curl -sLf https://github.com/netwide-assembler/nasm/archive/refs/tags/nasm-${NASM_VERSION}.tar.gz | tar -zx --strip-components=1 && \
+    ls && \
     ./configure --prefix="${PREFIX}" && \
     make -j$(nproc) && \
     sudo make install && \
