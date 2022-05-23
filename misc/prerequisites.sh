@@ -288,7 +288,7 @@ install_libpcre2()
 
 install_base_ubuntu()
 {
-    sudo apt install -y build-essential autoconf libtool zlib1g-dev tclsh cmake curl pkg-config bc uuid-dev
+    sudo apt install -y build-essential autoconf libtool zlib1g-dev tclsh cmake curl pkg-config bc uuid-dev nasm
 }
 
 install_base_fedora()
@@ -420,7 +420,7 @@ else
     echo "Please refer to manual installation page"
 fi
 
-install_nasm
+# install_nasm
 install_openssl
 install_libsrtp
 install_libsrt
